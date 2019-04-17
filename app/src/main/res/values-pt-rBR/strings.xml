@@ -5,4 +5,6 @@
     <string name="watching">Assistindo</string>
     <string name="completed">Concluídas</string>
     <string name="about">Sobre</string>
+    <string name="add">+</string>
+    <string name="register">Cadastrar</string>
 </resources>
