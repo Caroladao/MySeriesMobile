@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Series</string>
+    <string name="interests">Interesses</string>
+    <string name="watching">Assistindo</string>
+    <string name="completed">Concluídas</string>
+    <string name="about">Sobre</string>
+</resources>
