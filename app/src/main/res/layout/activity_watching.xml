@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".WatchingActivity">
 
+    <Button
+        android:id="@+id/buttonAdd"
+        style="@android:style/Widget.Button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="goRegister"
+        android:text="@string/add"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">My Series</string>
+    <string name="app_name">MySeries</string>
     <string name="interests">Interests</string>
     <string name="watching">Watching</string>
     <string name="completed">Completed</string>
     <string name="about">About</string>
     <string name="add">+</string>
     <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="season">Season</string>
+    <string name="episode">Episode</string>
+    <string name="send">Send</string>
 </resources>
