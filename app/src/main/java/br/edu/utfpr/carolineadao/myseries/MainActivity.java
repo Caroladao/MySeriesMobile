@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+
     }
 
     public void goInterests(View view) {
@@ -29,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void goCompleted(View view) {
         Intent intent = new Intent(this, CompletedActivity.class);
+        startActivity(intent);
+    }
+
+    public void goAbout(View view) {
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public void goSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 }

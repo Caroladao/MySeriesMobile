@@ -1,6 +1,7 @@
 package br.edu.utfpr.carolineadao.myseries;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ public class InterestsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_interests);
 
         setTitle(R.string.interests);
+
     }
 
     public void goRegister(View view) {
