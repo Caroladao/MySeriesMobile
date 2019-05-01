@@ -101,7 +101,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textViewCategory"
+        android:id="@+id/textViewTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextSeason" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -126,6 +126,6 @@
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
 </android.support.constraint.ConstraintLayout>

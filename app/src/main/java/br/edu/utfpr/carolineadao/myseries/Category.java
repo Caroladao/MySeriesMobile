@@ -9,6 +9,10 @@ public class Category {
         this.id = id;
     }
 
+    public Category(){
+
+    }
+
     public String getName() {
         return name;
     }

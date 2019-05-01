@@ -13,4 +13,27 @@
     <string name="send">Enviar</string>
     <string name="category">Categoria</string>
     <string name="settings">Configurações</string>
+    <string name="textAbout">O MySeries é um app desenvolvido na aula de Programação Móvel do professor Alexandre Feitosa, o aplicativo tem por objetivo ajudar o usuário a ter um controle das series que tem interesse, que assistiu e as series que finalizou.</string>
+    <string name="authorship">Desenvolvido por Caroline Adão</string>
+
+    <string name="action">Ação</string>
+    <string name="adventure">Aventura</string>
+    <string name="animation">Animação</string>
+    <string name="comedy">Comédia</string>
+    <string name="romanticComedy">Comédia Romântica</string>
+    <string name="dance">Dança</string>
+    <string name="documentary">Documentário</string>
+    <string name="drama">Drama</string>
+    <string name="educational">Educacional</string>
+    <string name="espionage">Espionagem</string>
+    <string name="farwest">Faroeste</string>
+    <string name="fantasy">Fantasia</string>
+    <string name="scienceFiction">Ficção Cientifica</string>
+    <string name="war">Guerra</string>
+    <string name="musical">Musical</string>
+    <string name="police">Policial</string>
+    <string name="thriller">Suspense</string>
+    <string name="horror">Terror</string>
+    <string name="infantile">Infantil</string>
+
 </resources>

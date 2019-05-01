@@ -1,6 +1,7 @@
 package br.edu.utfpr.carolineadao.myseries;
 
 public class Serie {
+    private int id;
     private String name;
     private int episodes;
     private int seasons;
@@ -36,7 +37,6 @@ public class Serie {
     public void setSeasons(int seasons) {
         this.seasons = seasons;
     }
-
 
     public Category getCategory() {
         return category;
