@@ -1,7 +1,6 @@
 package br.edu.utfpr.carolineadao.myseries;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        //layolt.setBackground();
     }
 
     public void goInterests(View view) {
