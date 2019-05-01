@@ -11,4 +11,6 @@
     <string name="season">Temporada</string>
     <string name="episode">Episódio</string>
     <string name="send">Enviar</string>
+    <string name="category">Categoria</string>
+    <string name="settings">Configurações</string>
 </resources>

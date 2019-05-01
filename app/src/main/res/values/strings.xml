@@ -10,4 +10,6 @@
     <string name="season">Season</string>
     <string name="episode">Episode</string>
     <string name="send">Send</string>
+    <string name="category">Category</string>
+    <string name="settings">Settings</string>
 </resources>
