@@ -56,6 +56,7 @@
         android:text="@string/episode"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextEpisode"
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
     <EditText
@@ -66,7 +67,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeason" />
@@ -74,18 +75,18 @@
     <EditText
         android:id="@+id/editTextEpisode"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEpisode" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonSend"
         style="@android:style/Widget.Button"
         android:layout_width="0dp"
         android:layout_height="60dp"
@@ -94,6 +95,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
+        android:onClick="registerSerie"
         android:text="@string/send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,13 +119,16 @@
 
     <Spinner
         android:id="@+id/spinnerRegister"
+        style="@style/Widget.AppCompat.Spinner.DropDown"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="41dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:entries="@array/category"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />

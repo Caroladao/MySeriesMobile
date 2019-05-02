@@ -15,26 +15,24 @@
     <string name="textAbout">The MySeries is an application developed in the Mobile Programming class of Professor Alexandre Feitosa, the application aims to help the user to have a control of the series that has interest, which he attended and the series that he finished.</string>
     <string name="authorship">Developed by Caroline Adão</string>
 
-    <string-array
-        name="category">
-        <item>Action</item>
-        <item>Adventure</item>
-        <item>Animation</item>
-        <item>Comedy</item>
-        <item>Romantic Comedy</item>
-        <item>Dance</item>
-        <item>Documentary</item>
-        <item>Drama</item>
-        <item>Educational</item>
-        <item>Espionage</item>
-        <item>Far West</item>
-        <item>Fantasy</item>
-        <item>Science Fiction</item>
-        <item>War</item>
-        <item>Musical</item>
-        <item>Police</item>
-        <item>Thriller</item>
-        <item>Horror</item>
-    </string-array>
+    <string name="action">Action</string>
+    <string name="adventure">Adventure</string>
+    <string name="animation">Animation</string>
+    <string name="comedy">Comedy</string>
+    <string name="romanticComedy">Romantic Comedy</string>
+    <string name="dance">Dance</string>
+    <string name="documentary">Documentary</string>
+    <string name="drama">Drama</string>
+    <string name="educational">Educational</string>
+    <string name="espionage">Espionage</string>
+    <string name="farWest">Far West</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="scienceFiction">Science Fiction</string>
+    <string name="war">War</string>
+    <string name="musical">Musical</string>
+    <string name="police">Police</string>
+    <string name="thriller">Thriller</string>
+    <string name="horror">Horror</string>
+    <string name="infantile">Infantile</string>
 
 </resources>
