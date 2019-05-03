@@ -34,5 +34,6 @@
     <string name="thriller">Thriller</string>
     <string name="horror">Horror</string>
     <string name="infantile">Infantile</string>
+    <string name="status">Status</string>
 
 </resources>

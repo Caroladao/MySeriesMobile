@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goSettings(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
+        Intent intent = new Intent(this, SeriesActivity.class);
         startActivity(intent);
     }
 }

@@ -18,6 +18,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText txtSeason;
     private EditText txtEpisode;
     private Spinner spinnerCategory;
+    private Spinner spinnerStatus;
     ArrayList<Serie> series;
 
     @Override
@@ -30,13 +31,14 @@ public class RegisterActivity extends AppCompatActivity {
         txtName = findViewById(R.id.editTextName);
         txtSeason = findViewById(R.id.editTextSeason);
         txtEpisode = findViewById(R.id.editTextEpisode);
-        spinnerCategory = findViewById(R.id.spinnerRegister);
+        spinnerCategory = findViewById(R.id.spinnerCategory);
+        spinnerStatus = findViewById(R.id.spinnerStatus);
 
 
         Intent intent = getIntent();
 
         if(intent != null){
-            series = intent.getSerializableExtra("Series");
+           // series = intent.getSerializableExtra("Series");
         }
 
 
@@ -64,59 +66,5 @@ public class RegisterActivity extends AppCompatActivity {
         spinnerCategory.setAdapter(adapter);
     }
 
-    public void registerSerie(View view){
 
-
-        String name = txtName.getText().toString();
-
-        int season;
-        int episode;
-        if( !txtSeason.getText().toString().isEmpty() ){
-            season = Integer.parseInt(txtSeason.getText().toString());
-        }else{
-            season = -1;
-        }
-        if( !txtEpisode.getText().toString().isEmpty() ){
-            episode = Integer.parseInt(txtEpisode.getText().toString());
-        }else{
-            episode = -1;
-        }
-
-        Category category = (Category) spinnerCategory.getSelectedItem();
-
-        if(txtName == null || name.trim().isEmpty()){
-
-            Toast.makeText(this,
-                    "O campo de nome não pode ser vazio!",
-                    Toast.LENGTH_LONG).show();
-
-        }else {
-
-            if ( episode >= 0 && season >= 0) {
-                series.add(new Serie(name, episode, season, category));
-                Toast.makeText(this,
-                        "A série \"" + name + "\" foi cadastrada",
-                        Toast.LENGTH_LONG).show();
-
-            } else if ( episode < 0 && season >= 0) {
-                series.add(new Serie(name, season, category));
-                Toast.makeText(this,
-                        "A série \"" + name + "\" foi cadastrada",
-                        Toast.LENGTH_LONG).show();
-
-            } else {
-                series.add(new Serie(name, category));
-                Toast.makeText(this,
-                        "A série \"" + name + "\" foi cadastrada",
-                        Toast.LENGTH_LONG).show();
-            }
-
-            if(series == null){
-                Toast.makeText(this,
-                        "não pegou o array!",
-                        Toast.LENGTH_LONG).show();
-            }
-        }
-
-    }
 }

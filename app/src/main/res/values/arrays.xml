@@ -44,4 +44,11 @@
         <item>18</item>
     </integer-array>
 
+    <string-array
+        name="status">
+        <item>@string/interests</item>
+        <item>@string/watching</item>
+        <item>@string/completed</item>
+    </string-array>
+
 </resources>

@@ -9,24 +9,27 @@ public class Serie implements Parcelable {
     private int episodes;
     private int seasons;
     private Category category;
-    private Status status;
+    //private Status status;
 
     public Serie(String name, int episodes, int seasons, Category category) {
         this.name = name;
         this.episodes = episodes;
         this.seasons = seasons;
         this.category = category;
+        //this.status = status;
     }
 
     public Serie(String name, Category category) {
         this.name = name;
         this.category = category;
+        //this.status = status;
     }
 
     public Serie(String name, int seasons, Category category) {
         this.name = name;
         this.seasons = seasons;
         this.category = category;
+       // this.status = status;
     }
 
     public Serie(Parcel in){
