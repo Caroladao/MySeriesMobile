@@ -26,13 +26,10 @@ public class InterestsActivity extends AppCompatActivity {
         interestsSeries = new ArrayList<>();
 
         listarSeries();
-
     }
 
     public void goRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
-
-        intent.putParcelableArrayListExtra("Series", interestsSeries);
 
         startActivity(intent);
     }

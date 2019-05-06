@@ -8,6 +8,7 @@
     <string name="register">Register</string>
     <string name="name">Name</string>
     <string name="season">Season</string>
+    <string name="seasons">Seasons</string>
     <string name="episode">Episode</string>
     <string name="send">Send</string>
     <string name="category">Category</string>
@@ -35,5 +36,8 @@
     <string name="horror">Horror</string>
     <string name="infantile">Infantile</string>
     <string name="status">Status</string>
+
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
