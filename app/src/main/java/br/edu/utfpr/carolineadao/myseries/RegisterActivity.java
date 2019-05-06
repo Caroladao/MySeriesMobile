@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinnerCategory = findViewById(R.id.spinnerCategory);
         spinnerStatus = findViewById(R.id.spinnerStatus);
 
-        initSpinner();
+        //initSpinner();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){

@@ -8,9 +8,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,29 +44,21 @@ public class FragmentInterests extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SeriesActivity serieAc = new SeriesActivity();
-
-        //lstSeries = new ArrayList<>();
 
         lstSeries = ((SeriesActivity) getActivity()).getLstAll();
 
-        Category category = new Category("Algo",20);
+        Category category = new Category("Terror",20);
 
-        ((SeriesActivity) getActivity()).setLstAll(new Serie("The Vampire Diaries",8,category, "Interesses"));
-        ((SeriesActivity) getActivity()).setLstAll(new Serie("The Walking Dead",9,category,"Interesses"));
-        ((SeriesActivity) getActivity()).setLstAll(new Serie("Supergirl",4,category,"Interesses"));
+        if(((SeriesActivity) getActivity()).getLstAll().isEmpty()) {
 
+            ((SeriesActivity) getActivity()).setLstAll(new Serie("The Vampire Diaries", 8, category, "Interesses"));
+            ((SeriesActivity) getActivity()).setLstAll(new Serie("The Walking Dead", 9, category, "Interesses"));
+            ((SeriesActivity) getActivity()).setLstAll(new Serie("Supergirl", 4, category, "Interesses"));
+        }
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-        List<Serie> auxiliar = ((SeriesActivity) getActivity()).getLstAll();
-
-        if(auxiliar != lstSeries){
-            seriesRecyclerView.setAdapter(recyclerViewAdapter);
-            recyclerViewAdapter.notifyDataSetChanged();
-        }
     }
 }

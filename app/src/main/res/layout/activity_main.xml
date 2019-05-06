@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/wallpaper">
+    android:background="@color/backgroundfragment">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -25,61 +25,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_interests"
+        android:id="@+id/btn_series"
         style="@android:style/Widget.Button"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="200dp"
         android:background="#BFFFFFFF"
-        android:onClick="goInterests"
-        android:text="@string/interests"
+        android:onClick="goSeries"
+        android:text="@string/series"
         android:textSize="24sp"
         android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/btn_settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
-
-    <Button
-        android:id="@+id/btn_watching"
-        style="@android:style/Widget.Button"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="#BFFFFFFF"
-        android:onClick="goWatching"
-        android:text="@string/watching"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_interests" />
-
-    <Button
-        android:id="@+id/btn_completed"
-        style="@android:style/Widget.Button"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="#BFFFFFFF"
-        android:onClick="goCompleted"
-        android:text="@string/completed"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_watching" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_about"

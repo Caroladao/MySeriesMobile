@@ -18,18 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void goInterests(View view) {
-        Intent intent = new Intent(this, InterestsActivity.class);
-        startActivity(intent);
-    }
-
-    public void goWatching(View view) {
-        Intent intent = new Intent(this, WatchingActivity.class);
-        startActivity(intent);
-    }
-
-    public void goCompleted(View view) {
-        Intent intent = new Intent(this, CompletedActivity.class);
+    public void goSeries(View view) {
+        Intent intent = new Intent(this, SeriesActivity.class);
         startActivity(intent);
     }
 
@@ -39,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goSettings(View view) {
-        Intent intent = new Intent(this, SeriesActivity.class);
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 }

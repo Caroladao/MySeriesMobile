@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class SeriesActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
 
-    List<Serie> lstAll;
+    List<Serie> lstAll = new ArrayList<>();
 
     public List<Serie> getLstAll() {
         return lstAll;
@@ -24,6 +25,11 @@ public class SeriesActivity extends AppCompatActivity {
 
     public void setLstAll(Serie serie) {
         lstAll.add(serie);
+    }
+
+
+    public void updateLstAll(List<Serie> serie) {
+        this.lstAll = serie;
     }
 
     public static final String NAME         = "NAME";
@@ -53,7 +59,21 @@ public class SeriesActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.play);
         tabLayout.getTabAt(2).setIcon(R.drawable.check);
 
-        lstAll = new ArrayList<>();
+        Intent intent = getIntent();
+
+        Bundle bundle = intent.getExtras();
+
+        if (bundle != null){
+
+            String name = bundle.getString(NAME, "");
+            int episode = bundle.getInt(EPISODE, -1);
+            int season = bundle.getInt(SEASON, -1);
+            String category = bundle.getString(CATEGORY, "");
+            String status = bundle.getString(STATUS, "");
+
+
+            newSerie(name,episode,season,category,status);
+        }
 
     }
 
@@ -69,29 +89,22 @@ public class SeriesActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void newSerie() {
+    public void newSerie(String name, int episode, int season, String category, String status) {
 
-        Intent intent = getIntent();
+        if (!name.isEmpty() && name != "") {
 
-        Bundle bundle = intent.getExtras();
+            if (season >= 0 && episode >= 0) {
+                lstAll.add(new Serie(name, episode, season, new Category(category), status));
 
-        if (bundle != null) {
-            String name = bundle.getString(NAME, "");
-            int episode = bundle.getInt(EPISODE, -1);
-            int season = bundle.getInt(SEASON, -1);
-            String category = bundle.getString(CATEGORY, "");
-            String status = bundle.getString(STATUS, "");
-
-            if (!name.isEmpty() && name != "") {
-
-                if (season >= 0 && episode >= 0) {
-                    setLstAll(new Serie(name, episode, season, new Category(category), status));
-                } else if (season >= 0) {
-                    setLstAll(new Serie(name, season, new Category(category), status));
-                } else {
-                    setLstAll(new Serie(name, new Category(category), status));
-                }
+            } else if (season >= 0) {
+                lstAll.add(new Serie(name, season, new Category(category), status));
+            } else {
+                lstAll.add(new Serie(name, new Category(category), status));
+                Toast.makeText(this,
+                        getLstAll().toString(),
+                        Toast.LENGTH_LONG).show();
             }
         }
+
     }
 }

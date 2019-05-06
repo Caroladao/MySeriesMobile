@@ -13,9 +13,6 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".CompletedActivity" />
-        <activity android:name=".WatchingActivity" />
-        <activity android:name=".InterestsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
