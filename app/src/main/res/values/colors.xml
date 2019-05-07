@@ -6,5 +6,5 @@
     <color name="backgroundfragment">#2B2B2B</color>
     <color name="borderitem">#3A3A3A</color>
     <color name="backgroundregister">#ACACAC</color>
-    <color name="my_spinner_text_color">#fff</color>
+    <color name="my_spinner_text_color">#FFFFFF</color>
 </resources>

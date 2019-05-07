@@ -9,10 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SeriesActivity"></activity>
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SeriesActivity"
+            android:parentActivityName="br.edu.utfpr.carolineadao.myseries.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.edu.utfpr.carolineadao.myseries.MainActivity" />
+        </activity>
+        <activity android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".RegisterActivity"
+            android:parentActivityName=".SeriesActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

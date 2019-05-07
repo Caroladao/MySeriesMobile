@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -29,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setTitle(R.string.register);
 
         txtName = findViewById(R.id.editTextName);
@@ -39,10 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //initSpinner();
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+
     }
 
     public void initSpinner(){
@@ -66,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    public void registerSerie(View view){
+    public void registerSerie(){
         Intent intent = new Intent(this, SeriesActivity.class);
         String name = txtName.getText().toString();
 
@@ -132,8 +133,37 @@ public class RegisterActivity extends AppCompatActivity {
             }
             startActivity(intent);
         }
-
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_serie, menu);
+        return true;
+    }
+
+    private void cancel(){
+        setResult(Activity.RESULT_CANCELED);
+        finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+
+            case R.id.menuItemSave:
+                registerSerie();
+                return true;
+
+            case android.R.id.home:
+            case R.id.menuItemCancel:
+                cancel();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }

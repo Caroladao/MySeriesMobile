@@ -41,5 +41,12 @@
     <string name="save">Salvar</string>
     <string name="cancel">Cancelar</string>
     <string name="series">Series</string>
+    <string name="background_color">Cor de fundo</string>
+    <string name="purple">Roxo</string>
+    <string name="red">Vermelho</string>
+    <string name="blue">Azul</string>
+
+    <string name="edit">Editar</string>
+    <string name="delete">Excluir</string>
 
 </resources>

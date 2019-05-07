@@ -1,6 +1,7 @@
 package br.edu.utfpr.carolineadao.myseries;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -47,18 +49,5 @@ public class FragmentInterests extends Fragment {
 
         lstSeries = ((SeriesActivity) getActivity()).getLstAll();
 
-        Category category = new Category("Terror",20);
-
-        if(((SeriesActivity) getActivity()).getLstAll().isEmpty()) {
-
-            ((SeriesActivity) getActivity()).setLstAll(new Serie("The Vampire Diaries", 8, category, "Interesses"));
-            ((SeriesActivity) getActivity()).setLstAll(new Serie("The Walking Dead", 9, category, "Interesses"));
-            ((SeriesActivity) getActivity()).setLstAll(new Serie("Supergirl", 4, category, "Interesses"));
-        }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 }
