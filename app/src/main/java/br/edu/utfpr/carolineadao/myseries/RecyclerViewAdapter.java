@@ -1,19 +1,17 @@
 package br.edu.utfpr.carolineadao.myseries;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+
+import br.edu.utfpr.carolineadao.myseries.models.Serie;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
@@ -40,7 +38,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.serie_name.setText(mData.get(position).getName());
         holder.serie_seasons.setText(mData.get(position).getSeasons()+" "+ mContext.getString(R.string.seasons));
-        holder.serie_category.setText(mData.get(position).getCategory().getName());
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

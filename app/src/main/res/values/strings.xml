@@ -10,31 +10,45 @@
     <string name="season">Season</string>
     <string name="seasons">Seasons</string>
     <string name="episode">Episode</string>
+    <string name="episodes">Episodes</string>
     <string name="send">Send</string>
     <string name="category">Category</string>
+    <string name="categories">Categories</string>
     <string name="settings">Settings</string>
     <string name="textAbout">The MySeries is an application developed in the Mobile Programming class of Professor Alexandre Feitosa, the application aims to help the user to have a control of the series that has interest, which he attended and the series that he finished.</string>
     <string name="authorship">Developed by Caroline Adão</string>
 
+    <string name="name_empty">The name is empty</string>
+    <string name="episode_empty">The episode field is empty</string>
+    <string name="season_empty">The season field is empty</string>
+
+    <string name="invalid_season">The season field is invalid</string>
+    <string name="invalid_episode">The episode field is invalid</string>
+
+    <string name="edit_category">Edit Category</string>
+    <string name="new_category">New Category</string>
+
+    <string name="category_exists">The category already exists!</string>
+    <string name="category_used">Tha category is being used!</string>
+    <string name="empty_categories">No categories created!</string>
+
+    <string name="edit_serie">Edit Serie</string>
+    <string name="new_serie">New Serie</string>
+
+    <string name="serie_exists">The serie already exists!</string>
+    <string name="want_delete">Do you want to delete?</string>
+
+    <string name="ok">Ok</string>
+    <string name="warning">Warning</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
     <string name="action">Action</string>
-    <string name="adventure">Adventure</string>
-    <string name="animation">Animation</string>
-    <string name="comedy">Comedy</string>
-    <string name="romanticComedy">Romantic Comedy</string>
-    <string name="dance">Dance</string>
-    <string name="documentary">Documentary</string>
+    <string name="romance">Romance</string>
     <string name="drama">Drama</string>
-    <string name="educational">Educational</string>
-    <string name="espionage">Espionage</string>
-    <string name="farWest">Far West</string>
-    <string name="fantasy">Fantasy</string>
-    <string name="scienceFiction">Science Fiction</string>
-    <string name="war">War</string>
-    <string name="musical">Musical</string>
-    <string name="police">Police</string>
-    <string name="thriller">Thriller</string>
     <string name="horror">Horror</string>
-    <string name="infantile">Infantile</string>
+
     <string name="status">Status</string>
 
     <string name="save">Save</string>
@@ -47,5 +61,7 @@
 
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="dark_theme">Dark Theme?</string>
+    <string name="theme_dark">Dark Theme</string>
 
 </resources>

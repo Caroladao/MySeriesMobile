@@ -10,7 +10,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,24 +21,31 @@ import android.widget.ListView;
 import java.util.List;
 
 import br.edu.utfpr.carolineadao.myseries.classDB.SeriesDatabase;
+import br.edu.utfpr.carolineadao.myseries.models.Category;
 import br.edu.utfpr.carolineadao.myseries.models.Serie;
 import br.edu.utfpr.carolineadao.myseries.utils.UtilsGUI;
 
-public class SeriesActivity extends AppCompatActivity {
+public class CategoryActivity extends AppCompatActivity {
 
-    private static final int REQUEST_NEW_SERIE    = 1;
-    private static final int REQUEST_EDIT_SERIE   = 2;
+    private static final int REQUEST_NEW_CATEGORY   = 1;
+    private static final int REQUEST_EDIT_CATEGORY  = 2;
 
-    private ListView             listViewSerie;
-    private ArrayAdapter<Serie>  listAdapter;
-    private List<Serie>          list;
-
+    private ListView                listViewCategories;
+    private ArrayAdapter<Category>  listAdapter;
+    private List<Category>          list;
 
     private ActionMode              actionMode;
     private int                     positionSelect = -1;
     private View                    viewSelect;
 
     SharedPref sharedPref;
+
+    public static void open(Activity activity){
+
+        Intent intent = new Intent(activity, CategoryActivity.class);
+
+        activity.startActivity(intent);
+    }
 
     private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
 
@@ -59,18 +65,18 @@ public class SeriesActivity extends AppCompatActivity {
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
 
-            Serie serie = list.get(positionSelect);
+            Category category = list.get(positionSelect);
 
             switch(item.getItemId()){
                 case R.id.menuItemEdit:
-                    FormSerieActivity.editSerie(SeriesActivity.this,
-                            REQUEST_EDIT_SERIE,
-                            serie);
+                    FormCategoryActivity.editCategory(CategoryActivity.this,
+                            REQUEST_EDIT_CATEGORY,
+                            category);
                     mode.finish();
                     return true;
 
                 case R.id.menuItemDelete:
-                    deleteSerie(serie);
+                    verifyCategory(category);
                     mode.finish();
                     return true;
 
@@ -89,7 +95,7 @@ public class SeriesActivity extends AppCompatActivity {
             actionMode         = null;
             viewSelect         = null;
 
-            listViewSerie.setEnabled(true);
+            listViewCategories.setEnabled(true);
         }
     };
 
@@ -102,24 +108,28 @@ public class SeriesActivity extends AppCompatActivity {
             setTheme(R.style.AppTheme);
         }
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_category);
 
-        listViewSerie = findViewById(R.id.listViewItens);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
-        listViewSerie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewCategories = findViewById(R.id.listViewItens);
+
+        listViewCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Serie serie = (Serie) parent.getItemAtPosition(position);
+                Category category = (Category) parent.getItemAtPosition(position);
 
-                FormSerieActivity.editSerie(SeriesActivity.this,
-                        REQUEST_EDIT_SERIE,
-                        serie);
+                FormCategoryActivity.editCategory(CategoryActivity.this,
+                        REQUEST_EDIT_CATEGORY,
+                        category);
             }
         });
 
-        listViewSerie.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        listViewCategories.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 if (actionMode != null){
@@ -132,7 +142,7 @@ public class SeriesActivity extends AppCompatActivity {
 
                 viewSelect = view;
 
-                listViewSerie.setEnabled(false);
+                listViewCategories.setEnabled(false);
 
                 actionMode = startSupportActionMode(mActionModeCallback);
 
@@ -140,51 +150,78 @@ public class SeriesActivity extends AppCompatActivity {
             }
         });
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
         FloatingActionButton btn = (FloatingActionButton) findViewById(R.id.btn_register);
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                checkCategories();
+                FormCategoryActivity.newCategory(CategoryActivity.this, REQUEST_NEW_CATEGORY);
             }
         });
 
-        loadSeries();
+        loadCategories();
 
-        registerForContextMenu(listViewSerie);
+        registerForContextMenu(listViewCategories);
+
+        setTitle(R.string.categories);
     }
 
-    /* MUDAR */
-    private void loadSeries(){
+    private void loadCategories(){
 
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                SeriesDatabase database = SeriesDatabase.getDatabase(SeriesActivity.this);
 
-                list = database.serieDao().queryAll();
+                SeriesDatabase database = SeriesDatabase.getDatabase(CategoryActivity.this);
 
-                SeriesActivity.this.runOnUiThread(new Runnable() {
+                list = database.categoryDao().queryAll();
+
+                CategoryActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        listAdapter = new ArrayAdapter<>(SeriesActivity.this,
+                        listAdapter = new ArrayAdapter<>(CategoryActivity.this,
                                 android.R.layout.simple_list_item_1,
                                 list);
 
-                        listViewSerie.setAdapter(listAdapter);
+                        listViewCategories.setAdapter(listAdapter);
                     }
                 });
             }
         });
     }
 
-    private void deleteSerie(final Serie serie){
+    private void verifyCategory(final Category category){
 
-        String message = getString(R.string.want_delete)
-                + "\n" + serie.getName();
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                SeriesDatabase database = SeriesDatabase.getDatabase(CategoryActivity.this);
+
+                List<Serie> list = database.serieDao().queryForCategoryId(category.getId());
+
+                if (list != null && list.size() > 0){
+
+                    CategoryActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            UtilsGUI.warningError(CategoryActivity.this, R.string.category_used);
+                        }
+                    });
+
+                    return;
+                }
+
+                CategoryActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        deleteCategory(category);
+                    }
+                });
+            }
+        });
+    }
+
+    private void deleteCategory(final Category category){
+
+        String message = getString(R.string.want_delete) + "\n" + category.getName();
 
         DialogInterface.OnClickListener listener =
                 new DialogInterface.OnClickListener() {
@@ -199,14 +236,14 @@ public class SeriesActivity extends AppCompatActivity {
                                     public void run() {
 
                                         SeriesDatabase database =
-                                                SeriesDatabase.getDatabase(SeriesActivity.this);
+                                                SeriesDatabase.getDatabase(CategoryActivity.this);
 
-                                        database.serieDao().delete(serie);
+                                        database.categoryDao().delete(category);
 
-                                        SeriesActivity.this.runOnUiThread(new Runnable() {
+                                        CategoryActivity.this.runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                listAdapter.remove(serie);
+                                                listAdapter.remove(category);
                                             }
                                         });
                                     }
@@ -227,91 +264,10 @@ public class SeriesActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if ((requestCode == REQUEST_NEW_SERIE || requestCode == REQUEST_EDIT_SERIE)
+        if ((requestCode == REQUEST_NEW_CATEGORY || requestCode == REQUEST_EDIT_CATEGORY)
                 && resultCode == Activity.RESULT_OK){
 
-            /* MUDAR */
-            loadSeries();
-        }
-    }
-
-    private void checkCategories(){
-
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                SeriesDatabase database = SeriesDatabase.getDatabase(SeriesActivity.this);
-
-                int total = database.categoryDao().total();
-
-                if (total == 0){
-
-                    SeriesActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            UtilsGUI.warningError(SeriesActivity.this, R.string.empty_categories);
-                        }
-                    });
-
-                    return;
-                }
-
-                FormSerieActivity.newSerie(SeriesActivity.this, REQUEST_NEW_SERIE);
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.options_list, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()){
-
-            case R.id.menuItemCategory:
-                CategoryActivity.open(this);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-
-        getMenuInflater().inflate(R.menu.options_edit, menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-
-        AdapterView.AdapterContextMenuInfo info;
-
-        info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
-        Serie serie = (Serie) listViewSerie.getItemAtPosition(info.position);
-
-        switch(item.getItemId()){
-
-            case R.id.menuItemEdit:
-                FormSerieActivity.editSerie(this,
-                        REQUEST_EDIT_SERIE,
-                        serie);
-                return true;
-
-            case R.id.menuItemDelete:
-                deleteSerie(serie);
-                return true;
-
-            default:
-                return super.onContextItemSelected(item);
+            loadCategories();
         }
     }
 }
