@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".CategoryActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".SeriesActivity">
         </activity>
         <activity
             android:name=".FormCategoryActivity"
@@ -19,9 +19,6 @@
         <activity
             android:name=".SeriesActivity"
             android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.edu.utfpr.carolineadao.myseries.MainActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"

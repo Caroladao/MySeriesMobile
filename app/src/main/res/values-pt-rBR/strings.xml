@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MySeries</string>
-    <string name="interests">Interesses</string>
+    <string name="interests">Interesse</string>
     <string name="watching">Assistindo</string>
-    <string name="completed">Concluídas</string>
+    <string name="completed">Concluída</string>
     <string name="about">Sobre</string>
     <string name="add">+</string>
     <string name="register">Cadastrar</string>
@@ -62,7 +62,7 @@
 
     <string name="edit">Editar</string>
     <string name="delete">Excluir</string>
-    <string name="dark_theme">Dark Theme?</string>
-    <string name="theme_dark">Dark Theme</string>
+    <string name="night_mode">Modo Noturno</string>
+    <string name="theme_dark">Tema Dark</string>
 
 </resources>

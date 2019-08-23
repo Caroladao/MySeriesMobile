@@ -64,7 +64,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
 
             serie_name = (TextView) itemView.findViewById(R.id.name_serie);
-            serie_seasons = (TextView) itemView.findViewById(R.id.season_episode_serie);
+            serie_seasons = (TextView) itemView.findViewById(R.id.season_serie);
             serie_category = (TextView) itemView.findViewById(R.id.category_serie);
         }
     }

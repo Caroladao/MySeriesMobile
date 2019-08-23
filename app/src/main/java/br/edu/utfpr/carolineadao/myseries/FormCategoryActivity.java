@@ -124,7 +124,6 @@ public class FormCategoryActivity extends AppCompatActivity {
 
                 List<Category> list = database.categoryDao().queryForName(name);
 
-                System.out.println(list);
 
                 if (mode == NEW) {
 

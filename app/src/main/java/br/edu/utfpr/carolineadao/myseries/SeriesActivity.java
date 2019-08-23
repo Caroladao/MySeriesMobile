@@ -103,9 +103,9 @@ public class SeriesActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_series);
 
-        listViewSerie = findViewById(R.id.listViewItens);
+        listViewSerie = findViewById(R.id.listViewSerie);
 
         listViewSerie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -170,9 +170,7 @@ public class SeriesActivity extends AppCompatActivity {
                 SeriesActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        listAdapter = new ArrayAdapter<>(SeriesActivity.this,
-                                android.R.layout.simple_list_item_1,
-                                list);
+                        listAdapter = new itemSerie(SeriesActivity.this, list);
 
                         listViewSerie.setAdapter(listAdapter);
                     }

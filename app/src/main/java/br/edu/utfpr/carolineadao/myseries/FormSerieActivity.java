@@ -118,7 +118,6 @@ public class FormSerieActivity extends AppCompatActivity {
                             int positionStt = positionStatus(serie.getStatus());
                             spinnerStatus.setSelection(positionStt);
 
-                            System.out.println("Status "+positionStt);
 
                             int positionCat = positionCategory(serie.getCategoryId());
                             spinnerCategory.setSelection(positionCat);
@@ -150,7 +149,6 @@ public class FormSerieActivity extends AppCompatActivity {
     }
 
     private int positionStatus(String status){
-        System.out.println(status + " - " + getResources().getString(R.string.interests));
 
         if(status.equalsIgnoreCase(getResources().getString(R.string.interests))){
             return 0;

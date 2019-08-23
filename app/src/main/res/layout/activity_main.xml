@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="?attr/backgroundColor">
+    android:background="?attr/mainBackground">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -17,32 +17,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/app_name"
-        android:textColor="?attr/textcolor"
+        android:textColor="#2E2E2E"
         android:textSize="72sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_series"
-        style="@android:style/Widget.Button"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="200dp"
-        android:background="#BFFFFFFF"
-        android:onClick="goSeries"
-        android:text="@string/series"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/btn_settings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_about"
@@ -54,7 +34,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#BFFFFFFF"
+        android:background="?attr/backgroundColor"
+        android:textColor="?attr/textcolor"
         android:onClick="goAbout"
         android:text="@string/about"
         android:textSize="24sp"
@@ -73,7 +54,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#BFFFFFFF"
+        android:background="?attr/backgroundColor"
+        android:textColor="?attr/textcolor"
         android:onClick="goSettings"
         android:text="@string/settings"
         android:textSize="24sp"
@@ -81,5 +63,22 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_about"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="369dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="goSeries"
+        app:layout_constraintBottom_toTopOf="@+id/btn_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        app:srcCompat="@mipmap/ic_launcher" />
 
 </android.support.constraint.ConstraintLayout>

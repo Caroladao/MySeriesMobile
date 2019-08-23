@@ -177,9 +177,7 @@ public class CategoryActivity extends AppCompatActivity {
                 CategoryActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        listAdapter = new ArrayAdapter<>(CategoryActivity.this,
-                                android.R.layout.simple_list_item_1,
-                                list);
+                        listAdapter = new itemCategory(CategoryActivity.this,list);
 
                         listViewCategories.setAdapter(listAdapter);
                     }

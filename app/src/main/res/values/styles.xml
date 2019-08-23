@@ -5,12 +5,12 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#2196F3</item>
         <item name="colorPrimaryDark">#1976D2</item>
-        <item name="colorFragment">#0169C9</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#fcfcfc</item>
         <item name="textcolor">#808080</item>
         <item name="buttoncolor">#2196F3</item>
         <item name="tintcolor">#2196F3</item>
+        <item name="mainBackground">#2196F3</item>
     </style>
 
     <!-- Dark theme. -->
@@ -18,12 +18,12 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#212121</item>
         <item name="colorPrimaryDark">#000000</item>
-        <item name="colorFragment">#2E2E2E</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#303030</item>
         <item name="textcolor">#ffffff</item>
         <item name="buttoncolor">#2196F3</item>
-        <item name="tintcolor">#2E2E2E</item>
+        <item name="tintcolor">#2196F3</item>
+        <item name="mainBackground">#2196F3</item>
     </style>
 
     <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
